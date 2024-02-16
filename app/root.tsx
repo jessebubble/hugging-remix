@@ -1,10 +1,18 @@
 import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css";
+
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: stylesheet },
+  { rel: 'icon', href: '/favicon.ico' },
+];
 
 export default function App() {
   return (
@@ -12,6 +20,9 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+          🤗 Hugging Remix
+        </title>
         <Meta />
         <Links />
       </head>
@@ -19,6 +30,7 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
